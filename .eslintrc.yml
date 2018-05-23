@@ -1,0 +1,27 @@
+env: 
+  browser: true
+  node: true
+  es6: true
+
+parser: babel-eslint
+
+extends: 
+  - airbnb
+  - plugin:react/recommended
+  - prettier
+  - prettier/react
+  - prettier/standard
+
+rules:
+  prettier/prettier: error
+  max-len: 
+    - error
+    - code: 120
+      ignoreUrls: true
+  no-confusing-arrow: error
+  no-tabs: error
+
+plugins:
+  - react
+  - prettier
+  - standard
