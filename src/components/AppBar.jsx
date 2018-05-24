@@ -9,6 +9,11 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
+// import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
+import compose from "recompose/compose";
+
 const styles = {
   root: {
     flexGrow: 1
@@ -41,7 +46,7 @@ class MenuAppBar extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, upload } = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -81,7 +86,7 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}>Login</MenuItem>
+                  <MenuItem onClick={upload}>Login</MenuItem>
                   <MenuItem onClick={this.handleClose}>My account</MenuItem>
                 </Menu>
               </div>
@@ -94,7 +99,19 @@ class MenuAppBar extends React.Component {
 }
 
 MenuAppBar.propTypes = {
-  classes: PropTypes.shape.isRequired
+  classes: PropTypes.shape.isRequired,
+  upload: PropTypes.func.isRequired
 };
 
-export default withStyles(styles)(MenuAppBar);
+// const mapDispatchToProps = dispatch =>   bindActionCreators(     { login:
+// data => dispatch({type: "LOGIN", payload: data})     },     dispatch );
+
+const mapDispatchToProps = {
+  upload: {
+    type: "UPLOAD"
+  }
+};
+
+export default compose(withStyles(styles), connect(null, mapDispatchToProps))(
+  MenuAppBar
+);

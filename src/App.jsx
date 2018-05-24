@@ -8,6 +8,8 @@ import Grid from "@material-ui/core/Grid";
 import "./App.css";
 import AppBar from "./components/AppBar";
 
+import RootBottomNavigation from "./components/BottomNavigatoin";
+
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -47,6 +49,7 @@ function App(props) {
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
       </Grid>
+      <RootBottomNavigation />
     </div>
   );
 }
