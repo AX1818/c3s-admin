@@ -1,42 +1,46 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import {withStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+
+import TopNavigationBar from "./TopNavigationBar";
+import PhotoDropZone from "./PhotoDropZone";
 
 const styles = theme => ({
   root: {
     flexGrow: 1
   },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: "center",
-    color: theme.palette.text.secondary
+  flex: {
+    flex: 1
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20
   }
 });
 
-const UploadPhotos = ({ classes }) => (
-  <Grid container spacing={24}>
-    <Grid item xs={6}>
-      <Paper className={classes.paper}>xs=6</Paper>
+const UploadPhotos = ({classes}) => (
+  <div className={classes.root}>
+    <Grid item xs={12}>
+      <TopNavigationBar>
+        <Typography variant="title" color="inherit" className={classes.flex}>
+          Upload Photos
+        </Typography>
+        <Button color="inherit">Login</Button>
+      </TopNavigationBar>
     </Grid>
-    <Grid item xs={6}>
-      <Paper className={classes.paper}>xs=6</Paper>
+
+    <Grid container spacing={24}>
+      <Grid item xs={2}/>
+      <Grid item xs={8}>
+        <PhotoDropZone/>
+      </Grid>
+      <Grid item xs={2}/>
     </Grid>
-    <Grid item xs={3}>
-      <Paper className={classes.paper}>xs=3</Paper>
-    </Grid>
-    <Grid item xs={3}>
-      <Paper className={classes.paper}>xs=3</Paper>
-    </Grid>
-    <Grid item xs={9}>
-      <Paper className={classes.paper}>xs=3</Paper>
-    </Grid>
-    <Grid item xs={3}>
-      <Paper className={classes.paper}>xs=3</Paper>
-    </Grid>
-  </Grid>
+  </div>
 );
 
 UploadPhotos.propTypes = {

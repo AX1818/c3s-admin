@@ -2,9 +2,46 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
-const SearchPhotos = () => <span>Search Photos</span>;
+import TopNavigationBar from "./TopNavigationBar";
 
-export default SearchPhotos;
+const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  flex: {
+    flex: 1
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20
+  }
+});
+
+const SearchPhotos = ({ classes }) => (
+  <div className={classes.root}>
+    <Grid item xs={12}>
+      <TopNavigationBar>
+        <Typography variant="title" color="inherit" className={classes.flex}>
+          Search Photos
+        </Typography>
+        <Button color="inherit">Login</Button>
+      </TopNavigationBar>
+    </Grid>
+
+    <Grid container spacing={24}>
+      <Grid item xs={2} />
+      <Grid item xs={8} />
+      <Grid item xs={2} />
+    </Grid>
+  </div>
+);
+
+SearchPhotos.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(SearchPhotos);

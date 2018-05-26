@@ -17,14 +17,12 @@ function navigationReducer(state = navStore, action) {
   }
 }
 
-function bottomNavigationReducer(
-  state = {
-    currentAction: "recentsPhotos"
-  },
-  action
-) {
+function bottomNavigationReducer(state = { currentAction: "" }, action) {
   console.log(`action: ${JSON.stringify(action, null, 2)}`);
   switch (action.type) {
+    case "home":
+      return { ...state, currentAction: "home" };
+
     case "recentsPhotos":
       return { ...state, currentAction: "recentsPhotos" };
 

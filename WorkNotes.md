@@ -2,6 +2,8 @@
 - [Tech Stack](#tech-stack)
 - [Coding Style](#coding-style)
 - [Linting Settings](#linting-settings)
+- [Upload Photos](#upload-photos)
+
 
 ## Tech Stack
 ### [Layout Design](https://material-ui.com/layout/basics/)
@@ -134,3 +136,8 @@ yarn add --dev eslint-plugin-prettier eslint-config-prettier
 - [Specifying env with ESLint CLI](http://eslint.org/docs/user-guide/command-line-interface#env)
 - [Specifying globals with ESLint CLI](http://eslint.org/docs/user-guide/command-line-interface#global)
 - [Eslint React Plugin Rules](https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules)
+
+
+## Upload Photos
+### Resources
+[react-dropzone](https://react-dropzone.js.org/)

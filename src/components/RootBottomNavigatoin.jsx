@@ -57,12 +57,11 @@ const mapStateToProps = state => ({
   currentAction: state.rootBottomNavigation.currentAction
 });
 
-const mapDispatchToProps = (dispatch, historyApi) =>
+const mapDispatchToProps = (dispatch, { history }) =>
   bindActionCreators(
     {
       handleChange: (event, value) => {
-        console.log("historyApi: ", historyApi, "\npath: ", `/${value}`);
-        historyApi.history.push(`/${value}`);
+        history.push(`/${value}`);
         return { type: value };
       }
     },
