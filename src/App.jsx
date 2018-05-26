@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {withStyles} from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import { connect } from "react-redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import Grid from "@material-ui/core/Grid";
+import { withStyles } from "@material-ui/core/styles";
 
 import "./App.css";
 import AppBar from "./components/AppBar";
 
 import RootBottomNavigation from "./components/RootBottomNavigatoin";
+
+import RecentsPhotos from "./components/RecentsPhotos";
+import UploadPhotos from "./components/UploadPhotos";
+import SearchPhotos from "./components/SearchPhotos";
 
 const styles = theme => ({
   root: {
@@ -21,41 +27,24 @@ const styles = theme => ({
   }
 });
 
-function App(props) {
-  const {classes} = props;
-
-  return (
+const App = ({ classes }) => (
+  <Router>
     <div className={classes.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <AppBar/>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={9}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
+      <Grid item xs={12}>
+        <AppBar />
       </Grid>
-      <RootBottomNavigation/>
+
+      <Route path="/uploadPhotos" component={UploadPhotos} />
+      <Route path="/recentsPhotos" component={RecentsPhotos} />
+      <Route path="/searchPhotos" component={SearchPhotos} />
+
+      <RootBottomNavigation />
     </div>
-  );
-}
+  </Router>
+);
 
 App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(App);
+export default connect()(withStyles(styles)(App));

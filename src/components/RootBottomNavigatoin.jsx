@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
+import { compose } from "recompose";
 
 import { withStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
@@ -28,17 +31,17 @@ const RootBottomNavigation = ({ classes, currentAction, handleChange }) => (
   >
     <BottomNavigationAction
       label="Recents"
-      value="RECENTS"
+      value="recentsPhotos"
       icon={<RestoreIcon />}
     />
     <BottomNavigationAction
       label="Search"
-      value="SEARCH"
+      value="searchPhotos"
       icon={<SearchIcon />}
     />
     <BottomNavigationAction
       label="Upload"
-      value="UPLOAD"
+      value="uploadPhotos"
       icon={<CloudUploadIcon />}
     />
   </BottomNavigation>
@@ -54,14 +57,20 @@ const mapStateToProps = state => ({
   currentAction: state.rootBottomNavigation.currentAction
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch, historyApi) =>
   bindActionCreators(
     {
-      handleChange: (event, value) => ({ type: value })
+      handleChange: (event, value) => {
+        console.log("historyApi: ", historyApi, "\npath: ", `/${value}`);
+        historyApi.history.push(`/${value}`);
+        return { type: value };
+      }
     },
     dispatch
   );
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  withStyles(styles)(RootBottomNavigation)
-);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps),
+  withStyles(styles)
+)(RootBottomNavigation);

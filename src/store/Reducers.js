@@ -17,17 +17,22 @@ function navigationReducer(state = navStore, action) {
   }
 }
 
-function bottomNavigationReducer(state = { currentAction: "RECENTS" }, action) {
+function bottomNavigationReducer(
+  state = {
+    currentAction: "recentsPhotos"
+  },
+  action
+) {
   console.log(`action: ${JSON.stringify(action, null, 2)}`);
   switch (action.type) {
-    case "RECENTS":
-      return { ...state, currentAction: "RECENTS" };
+    case "recentsPhotos":
+      return { ...state, currentAction: "recentsPhotos" };
 
-    case "UPLOAD":
-      return { ...state, currentAction: "UPLOAD" };
+    case "uploadPhotos":
+      return { ...state, currentAction: "uploadPhotos" };
 
-    case "SEARCH":
-      return { ...state, currentAction: "SEARCH" };
+    case "searchPhotos":
+      return { ...state, currentAction: "searchPhotos" };
 
     default:
       return state;
