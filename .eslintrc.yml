@@ -20,6 +20,7 @@ rules:
       ignoreUrls: true
   no-confusing-arrow: error
   no-tabs: error
+  react/forbid-prop-types: 0
 
 plugins:
   - react

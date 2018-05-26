@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 import "./App.css";
 import AppBar from "./components/AppBar";
 
-import RootBottomNavigation from "./components/BottomNavigatoin";
+import RootBottomNavigation from "./components/RootBottomNavigatoin";
 
 const styles = theme => ({
   root: {
@@ -22,13 +22,13 @@ const styles = theme => ({
 });
 
 function App(props) {
-  const { classes } = props;
+  const {classes} = props;
 
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <AppBar />
+          <AppBar/>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>xs=6</Paper>
@@ -49,13 +49,13 @@ function App(props) {
           <Paper className={classes.paper}>xs=3</Paper>
         </Grid>
       </Grid>
-      <RootBottomNavigation />
+      <RootBottomNavigation/>
     </div>
   );
 }
 
 App.propTypes = {
-  classes: PropTypes.shape.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(App);

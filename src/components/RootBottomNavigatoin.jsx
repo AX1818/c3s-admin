@@ -20,42 +20,38 @@ const styles = {
   }
 };
 
-function RootBottomNavigation(props) {
-  const { classes } = props;
-  const { currentAction, handleChange } = props;
-  return (
-    <BottomNavigation
-      value={currentAction}
-      onChange={handleChange}
-      className={classes.root}
-    >
-      <BottomNavigationAction
-        label="Recents"
-        value="RECENTS"
-        icon={<RestoreIcon />}
-      />
-      <BottomNavigationAction
-        label="Search"
-        value="SEARCH"
-        icon={<SearchIcon />}
-      />
-      <BottomNavigationAction
-        label="Upload"
-        value="UPLOAD"
-        icon={<CloudUploadIcon />}
-      />
-    </BottomNavigation>
-  );
-}
+const RootBottomNavigation = ({ classes, currentAction, handleChange }) => (
+  <BottomNavigation
+    value={currentAction}
+    onChange={handleChange}
+    className={classes.root}
+  >
+    <BottomNavigationAction
+      label="Recents"
+      value="RECENTS"
+      icon={<RestoreIcon />}
+    />
+    <BottomNavigationAction
+      label="Search"
+      value="SEARCH"
+      icon={<SearchIcon />}
+    />
+    <BottomNavigationAction
+      label="Upload"
+      value="UPLOAD"
+      icon={<CloudUploadIcon />}
+    />
+  </BottomNavigation>
+);
 
 RootBottomNavigation.propTypes = {
-  classes: PropTypes.shape.isRequired,
+  classes: PropTypes.object.isRequired,
   currentAction: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  currentAction: state.rootBottomNavigation
+  currentAction: state.rootBottomNavigation.currentAction
 });
 
 const mapDispatchToProps = dispatch =>

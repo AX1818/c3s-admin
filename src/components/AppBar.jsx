@@ -99,18 +99,13 @@ class MenuAppBar extends React.Component {
 }
 
 MenuAppBar.propTypes = {
-  classes: PropTypes.shape.isRequired,
+  classes: PropTypes.object.isRequired,
   upload: PropTypes.func.isRequired
 };
 
-// const mapDispatchToProps = dispatch =>   bindActionCreators(     { login:
-// data => dispatch({type: "LOGIN", payload: data})     },     dispatch );
-
-const mapDispatchToProps = {
-  upload: {
-    type: "UPLOAD"
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  upload: () => dispatch({ type: "UPLOAD" })
+});
 
 export default compose(withStyles(styles), connect(null, mapDispatchToProps))(
   MenuAppBar
