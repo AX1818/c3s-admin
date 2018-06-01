@@ -1,8 +1,8 @@
 import AWS from "aws-sdk";
 
-const albumBucketName = "c3s-upload-bucket";
-const bucketRegion = "us-east-2";
-const IdentityPoolId = "us-east-2:c29c7d71-b4c4-4334-9a5e-dcc7d65fc288";
+const albumBucketName = "c3s-upload-temp-bucket";
+const bucketRegion = "ap-southeast-2";
+const IdentityPoolId = "ap-southeast-2:f1d18d55-ad5f-4428-9054-4fa94be2f433";
 
 AWS.config.update({
   region: bucketRegion,
@@ -18,9 +18,8 @@ const s3 = new AWS.S3({
 
 export function addPhoto(file) {
   const fileName = file.name;
-  const albumPhotosKey = `photos/`;
 
-  const photoKey = albumPhotosKey + fileName;
+  const photoKey = fileName;
   return new Promise((resolve, reject) => {
     s3.upload(
       {

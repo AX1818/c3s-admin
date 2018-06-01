@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {withStyles} from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -22,7 +22,7 @@ const styles = theme => ({
   }
 });
 
-const UploadPhotos = ({classes}) => (
+const UploadPhotos = ({ classes }) => (
   <div className={classes.root}>
     <Grid item xs={12}>
       <TopNavigationBar>
@@ -34,11 +34,11 @@ const UploadPhotos = ({classes}) => (
     </Grid>
 
     <Grid container spacing={24}>
-      <Grid item xs={2}/>
+      <Grid item xs={2} />
       <Grid item xs={8}>
-        <PhotoDropZone/>
+        <PhotoDropZone />
       </Grid>
-      <Grid item xs={2}/>
+      <Grid item xs={2} />
     </Grid>
   </div>
 );
