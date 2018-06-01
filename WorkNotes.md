@@ -3,6 +3,7 @@
 - [Coding Style](#coding-style)
 - [Linting Settings](#linting-settings)
 - [Upload Photos](#upload-photos)
+- [AWS-SDK for JS](#aws-sdk-for-js)
 
 
 ## Tech Stack
@@ -141,3 +142,12 @@ yarn add --dev eslint-plugin-prettier eslint-config-prettier
 ## Upload Photos
 ### Resources
 [react-dropzone](https://react-dropzone.js.org/)
+
+
+## AWS-SDK For JS
+### [Getting Started in a Browser Script](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-browser.html)
+>To start using the SDK for JavaScript in browser scripts, create a simple browser-based app that authenticates users using Amazon Cognito Identity and Facebook login. After logging in, the user gets temporary AWS credentials and assumes the pre-specified AWS Identity and Access Management (IAM) role. The role policy allows uploading and listing objects in Amazon Simple Storage Service (Amazon S3).
+
+### [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cors.html)
+
+### [Bundling Applications with Webpack](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/webpack.html)
