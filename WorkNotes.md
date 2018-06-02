@@ -151,3 +151,9 @@ yarn add --dev eslint-plugin-prettier eslint-config-prettier
 ### [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cors.html)
 
 ### [Bundling Applications with Webpack](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/webpack.html)
+
+### [Setting Credentials in a Web Browser](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-browser.html)
+
+- [Using Amazon Cognito Identity to Authenticate Users](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-browser-credentials-cognito.html)
+- [Using Web Federated Identity to Authenticate Users](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-browser-credentials-federated-id.html)
+- [Web Federated Identity Examples](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/config-web-identity-examples.html)
